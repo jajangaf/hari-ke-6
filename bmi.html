@@ -4,76 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kalkulator BMI</title>
-  <style>
-    body{
-      margin:0;
-      padding:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:#f4f6f9;
-    }
-
-    nav{
-      background:#333;
-      padding:12px 24px;
-      display:flex;
-      gap:20px;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    nav a:hover{color:orange;}
-
-    .container{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:90vh;
-    }
-
-    .card{
-      background:white;
-      padding:32px;
-      border-radius:12px;
-      box-shadow:0 4px 20px rgba(0,0,0,0.1);
-      text-align:center;
-      width:360px;
-    }
-
-    h2{margin-bottom:20px}
-
-    label{display:block;margin-bottom:6px;text-align:left;font-weight:bold}
-
-    input[type="number"]{
-      width:100%;
-      padding:10px;
-      margin-bottom:16px;
-      border:1px solid #ccc;
-      border-radius:8px;
-    }
-
-    button{
-      padding:10px 16px;
-      background:orange;
-      border:none;
-      border-radius:8px;
-      color:white;
-      font-weight:bold;
-      cursor:pointer;
-    }
-
-    .result{
-      margin-top:20px;
-      padding:12px;
-      background:#f9fafb;
-      border:1px solid #e5e7eb;
-      border-radius:8px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="bmi.css">
 </head>
 <body>
   <nav>
@@ -101,35 +32,6 @@
     </div>
   </div>
 
-  <script>
-    const beratEl = document.getElementById('berat');
-    const tinggiEl = document.getElementById('tinggi');
-    const hitungBtn = document.getElementById('hitung');
-    const outputEl = document.getElementById('output');
-
-    function calculateBMI(kg, cm){
-      const m = cm/100;
-      return kg/(m*m);
-    }
-
-    function kategori(bmi){
-      if(bmi < 18.5) return "Kurus (Underweight)";
-      if(bmi < 25) return "Normal";
-      if(bmi < 30) return "Kegemukan (Overweight)";
-      return "Obesitas";
-    }
-
-    hitungBtn.addEventListener('click', ()=>{
-      const berat = parseFloat(beratEl.value);
-      const tinggi = parseFloat(tinggiEl.value);
-      if(!berat || !tinggi){
-        outputEl.textContent = "Masukkan data yang valid.";
-        return;
-      }
-      const bmi = calculateBMI(berat, tinggi);
-      const hasil = bmi.toFixed(1);
-      outputEl.innerHTML = `<strong>BMI:</strong> ${hasil}<br><strong>Kategori:</strong> ${kategori(bmi)}`;
-    });
-  </script>
+  <script src="bmi.js"></script>
 </body>
 </html>
